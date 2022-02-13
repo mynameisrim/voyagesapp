@@ -1,0 +1,11 @@
+{% extends 'hote_layout.html.twig' %}
+
+{% block title %}New Logement{% endblock %}
+
+{% block body %}
+    <h1>Create new Logement</h1>
+
+    {{ include('hote/logement/_form.html.twig') }}
+
+    <a href="{{ path('logement_index') }}">back to list</a>
+{% endblock %}

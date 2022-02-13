@@ -1,0 +1,40 @@
+{% extends 'hote_layout.html.twig' %}
+
+{% block title %}Logements {% endblock %}
+
+{% block body %}
+    <h1>Liste des logements</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Addresse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for logement in logements %}
+            <tr>
+                <td>{{ logement.id }}</td>
+                <td>{{ logement.titre }}</td>
+                <td>{{ logement.description }}</td>
+                <td>{{ logement.addresse }}</td>
+                <td>
+                    <a href="{{ path('logement_show', {'id': logement.id}) }}">Afficher</a>
+                    <a href="{{ path('logement_edit', {'id': logement.id}) }}">Editer</a>
+                    <a href="{{ path('logement_delete', {'id': logement.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">pas de résulatat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('logement_new') }}">Créer un nouveau logement</a>
+{% endblock %}

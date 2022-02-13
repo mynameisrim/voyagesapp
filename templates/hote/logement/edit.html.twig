@@ -1,0 +1,13 @@
+{% extends 'hote_layout.html.twig' %}
+
+{% block title %}Edit Logement{% endblock %}
+
+{% block body %}
+    <h1>Edit Logement</h1>
+
+    {{ include('hote/logement/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('logement_index') }}">Retour</a>
+
+    {{ include('hote/logement/_delete_form.html.twig') }}
+{% endblock %}
